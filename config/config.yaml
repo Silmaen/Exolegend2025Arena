@@ -1,0 +1,144 @@
+---
+#SIMULATION
+
+#version
+version: 3.0.6-4004acb3
+build: 1
+
+mazeWidth: 3.02768 #1.340 # maze width in mm
+mazeHeight: 3.02768 #1.340 # maze height in mm
+
+tagSize: 0.066
+detectionTagSize: 0.100
+tagDistance: 0.080 # distance between a tag and maze border
+tagTopDistance: 0.080
+reverseAngleFor: [1, 10]
+drawTag: false
+tags :
+  1 : [0, 1, 1, -1] # %x, %y, %dx, %dy
+  2 : [1, 1, -1, -1]
+  3 : [1, 0, -1, 1]
+  4 : [0, 0, 1, 1]
+
+wallsFile: walls.lbt #walls-small.lbt
+coinsFile: coins.fld #coins-small.fld
+
+modulesLengthHeight: 12 #6 number of modules vertically
+modulesLengthWidth: 12 #6 number of modules horizontally
+
+moduleHeight: 0.2523 #0.223
+moduleWidth: 0.2523 #0.223
+
+
+coinRadius: 0.060
+coinColor: yellow
+coinStrokeColor: red
+
+projectedCircleOpacity: 0.65 # properties of the white circle projected on the tag of the robot
+projectedCIrcleRadius: 0.25
+
+robotRadius: 0.06
+robotTakeRadius: 0.11 # radius of the robot when take a coin or get a possession
+robotWallDetectionRadius: 0.015
+robotWheelRadius: 0.0325 # m
+robotCenterX: 0
+robotCenterY: 0.020
+robotUndetectedTimeout: 600
+
+gameDuration: 120 # duration of a game in seconds (s)
+
+shrinkTime: 20 #every period of time in second when maze sould shrink
+beginTolerence: 0.055 #bgin position tolerence (on corner)
+authorizedFreezTime: 36000 #max time when a robot can unmove withhout being killed
+freezTimeKillTolerence: 0.012 #position tolerence for "freez time kill"
+timeOutBeforeKill: 3 # time in seconds before killing a robot when it is outside maze
+wallPenalityTime: 4 #duration of penanlity when a player go across a wall
+wallPenalityMaxSpeed: 0.1 # m/S - speed limit when a user go accross a wall
+maxPenalityBeforekill: 1000000
+deathCounter: 7 #death detection tolerence
+undetectedTagKillTimeTolerence: 1.2 #seconds
+robotAroundFrag: 0.02
+fragScore: 0
+weaponPosition: 0.162
+balloonRadius: 0.05
+penalityTimeForAdditionalWall: 0
+
+coinDesign: "BOMB" #Either -> BOMB, ROCKET, COIN, default: BOMB
+rocketSquareMaxRadius: 5 #radius of maximum distance of a rocket using module unity
+rocketSpeed: 0.6
+randomMaze: true
+
+timeBetweenSpawn: 6.1 #Either -> int, default: 3
+nbBombsBySpawn: 4.8 #Either -> int, default: 1
+incrementTimeByShrink: 0.5 #Either -> float, default: 1
+decrementBombByShrink: 0.6 #Either -> float, default: 0
+
+bombTimeToExplode: 7 #Either -> float, default: 5
+explosionSpeed: 0.5 #Either -> float, default: 0.3
+explosionKillRadius: 0.12 #Either -> float, default: 0.1
+isPenalityDroppingBomb: true #Either -> boolean, default: false
+bombIsKilling: true #Either -> boolean, false: freeze, true: kill, default: true
+freezeDuration: 4.0 #Either -> float, default: 4.0
+
+cameraHeight: 2.242 #2.51
+robotHeight: 0.22
+antennaPort: "/dev/ttyUSB0"
+cameraPort: 2
+antennaSleepTime: 0.04
+dummyMode: false
+
+calibrationCode: "0000"
+manualCalibrationIterations: 20
+
+darkMode: false
+
+projx: 1.300
+projz: 2.890
+projy: -0.620
+
+remote: true
+arenaDebugRemote: true #control robots with keyboard
+debugRemoteSpeed: 0.8
+
+verticalUI: true
+#projx: 0.670
+#projz: 2.360
+#projy: 0.670
+
+robotPlaying: 1
+
+simulationMenu: true
+calibrationMenu: false
+precisionCheckMenu: false
+playMenu: false
+homePage: "/simulation" #/ -> play, /calibration -> auto calibration
+designForTerra: "arena-a"
+showScoreFrame: false
+
+fullScreen: false
+debugMenu: false
+showDebugRobots: false
+logLevel: 0 # 0: debug, 1: info, 2: warning, 3: error
+token: "XXXX"
+
+mazeKeystoneOffset: #offset of the maze keystone
+  tl: [0, 0]
+  tr: [0, 0]
+  br: [0,0]
+  bl: [0, 0]
+maxAccel: 1.8
+
+#LOG FALCON
+logFalcon: false
+showFalconMeanTime: false
+freezMazeTags: true
+markerFilterCoefficient: 5
+tagToDebug: 23
+useLargeDetectionParams: true
+RemazeIfNoRobotScanned: false
+
+#SIMULATION
+positionDeviation: 0.001
+angleDeviation: 0.01
+wheelRadiusImprecision: 0.01
+debugGaussianNoise: false

@@ -1,0 +1,23 @@
+---
+services:
+  simulator:
+    build: .
+    ports:
+      - 50002:50002
+      - 50003:50003
+      - 50004:50004
+      - 50005:50005
+    network_mode: "host"
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:50004/health/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+    volumes:
+      - ./config:/virtuals/config
+      - ./logs:/virtuals/logs
